@@ -1,6 +1,7 @@
 # vscode-lisp
 
 Lisp syntax for vscode
+Adopted to a DSL
 
 ## License
 
@@ -8,6 +9,6 @@ This extension use a file that bradrobertson's sublime-packages to enable syntax
 
 https://github.com/bradrobertson/sublime-packages/tree/master/Lisp
 
-## Author
+## Original Author
 
 Yasuhiro Matsumoto (a.k.a. mattn)
