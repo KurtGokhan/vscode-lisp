@@ -19,6 +19,7 @@
   "dependencies": {},
   "devDependencies": {
     "typescript": "^2.8.1",
+    "vsce": "^1.37.6",
     "vscode": "^1.1.14"
   },
   "engines": {
@@ -53,5 +54,8 @@
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/mattn/vscode-lisp/issues"
+  },
+  "scripts": {
+    "build": "vsce package"
   }
 }
