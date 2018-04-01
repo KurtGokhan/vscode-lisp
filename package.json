@@ -1,39 +1,54 @@
 {
   "name": "Lisp",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "publisher": "mattn",
   "description": "Lisp syntax highlight",
   "author": {
     "name": "Yasuhiro Matsumoto (a.k.a mattn)"
   },
   "icon": "images/lisp.png",
-  "categories": ["Languages"],
+  "categories": [
+    "Languages"
+  ],
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattn/vscode-lisp"
+    "url": "https://github.com/kurtgokhan/vscode-lisp"
   },
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^1.6.2",
-    "vscode": "0.10.x"
+    "typescript": "^2.8.1",
+    "vscode": "^1.1.14"
   },
   "engines": {
     "vscode": "^0.10.10"
   },
   "contributes": {
-    "languages": [{
-      "id": "lisp",
-      "aliases": ["Lisp", "lisp"],
-      "extensions": [".lisp", ".cl", ".asd", ".ros", ".lsp"],
-      "configuration": "./Lisp.configuration.json"
-    }],
-    "grammars": [{
-      "language": "lisp",
-      "scopeName": "source.lisp",
-      "path": "./syntaxes/Lisp.tmLanguage"
-    }]
+    "languages": [
+      {
+        "id": "lisp",
+        "aliases": [
+          "Lisp",
+          "lisp"
+        ],
+        "extensions": [
+          ".lisp",
+          ".cl",
+          ".asd",
+          ".ros",
+          ".lsp"
+        ],
+        "configuration": "./Lisp.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lisp",
+        "scopeName": "source.lisp",
+        "path": "./syntaxes/Lisp.tmLanguage"
+      }
+    ]
   },
   "readmeFilename": "README.md",
   "bugs": {

@@ -57,7 +57,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?<=\s)(?i:&allow-other-keys|&aux|&body|&environment|&key|&optional|&rest|&whole)(?=\s+)</string>
+			<string>(?<=\s)(?i:&amp;allow-other-keys|&amp;aux|&amp;body|&amp;environment|&amp;key|&amp;optional|&amp;rest|&amp;whole)(?=\s+)</string>
 			<key>name</key>
 			<string>meta.function-parameters.lisp</string>
 		</dict>
@@ -72,11 +72,11 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.type.lisp</string>
+					<string>entity.name.tag.lisp</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?:\()((?i:deftype|defstruct|define-condition|defpackage|defclass))\s+((?:\w|[+\-<>/*&amp;=.?!$%:@\[\]^{}~#|])+)</string>
+			<string>(?:\()((?i:deftype|defstruct|define-condition|defpackage|defclass|def-class|def-structure))\s+((?:\w|[+\-<>/*&amp;=.?!$%:@\[\]^{}~#|])+)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -89,7 +89,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.variable.lisp</string>
+					<string>entity.name.tag.lisp</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -105,7 +105,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(#)([^w])+</string>
+			<string>#((\d+[rR])|[A-z]|[\\+=&lt;&gt;'"&amp;#\.%\*-]|(?=\())</string>
 			<key>name</key>
 			<string>constant.character.lisp</string>
 		</dict>
@@ -130,9 +130,16 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?<=^|\s|[()]):(\w|[+\-<>/*&amp;=.?!$%:@\[\]^{}~#|])*</string>
+			<string>(?<=^|\s|[()])#?:(\w|[+\&lt;&gt;/*&amp;=.?!$%:@\[\]^{}~#\|-])*</string>
 			<key>name</key>
 			<string>keyword.constant.lisp</string>
+		</dict>
+
+		<dict>
+			<key>match</key>
+			<string>(\w*):(?=(\w|[+\&lt;&gt;/*&amp;=.?!$%:@\[\]^{}~#\|-])*)</string>
+			<key>name</key>
+			<string>keyword.namespace.lisp</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -148,13 +155,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b</string>
+			<string>\b((0(x|X)[0-9a-fA-F]*)|([+-]?([0-9]+\.?[0-9]*)|(\.[0-9]+)|([0-9]+\.))([eEdDfF](\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b</string>
 			<key>name</key>
 			<string>constant.numeric.lisp</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(#w)?"</string>
+			<string>"</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -175,6 +182,63 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.double.lisp</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape.lisp</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>#\|</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.block.begin.lisp</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\|#</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.block.end.lisp</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>comment.block.lisp</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\|</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.symbol.escape.end.lisp</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\|</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.symbol.escape.end.lisp</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>entity.name.tag.lisp</string>
 			<key>patterns</key>
 			<array>
 				<dict>
