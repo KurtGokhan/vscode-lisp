@@ -105,7 +105,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>#((\d+[rR])|[A-z]|[\\+=&lt;&gt;'"&amp;#\.%\*-]|(?=\())</string>
+			<string>#((\d+[rR])|[a-zA-Z]|[+=&lt;&gt;'"&amp;#\.%\*-]|(\\.\S*)|(?=\())</string>
 			<key>name</key>
 			<string>constant.character.lisp</string>
 		</dict>

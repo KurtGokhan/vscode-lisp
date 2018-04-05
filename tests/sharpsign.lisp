@@ -17,6 +17,15 @@
     #25R-7H
     #.constant
     #\Backspace
+    #\|
+    #\;
+    #\
+    |hello|
+    #.%\a
+    a\ad
+    #.%\\
+    #.%\`
+    #\Newline
     #%Hello
     ##label
     #&undefined
