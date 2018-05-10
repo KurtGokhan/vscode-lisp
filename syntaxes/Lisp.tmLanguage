@@ -32,7 +32,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(;).*$\n?</string>
+			<string>(;)+.*$\n?</string>
 			<key>name</key>
 			<string>comment.line.semicolon.lisp</string>
 		</dict>
@@ -161,7 +161,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>"</string>
+			<string>(?<!\\)"</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
