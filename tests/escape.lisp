@@ -3,4 +3,6 @@
     |hello|
     #\Newline
     asf\"asd
+    #.%\|
+    adsa
 )
